@@ -1,4 +1,8 @@
 const express = require("express");
+const dotenv = require("dotenv");
+
+// Вызываем ДО обращения к переменным среды
+dotenv.config();
 
 const { PORT = 3000, API_URL = "http://localhost" } = process.env;
 
