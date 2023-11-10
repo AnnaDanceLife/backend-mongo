@@ -5,10 +5,10 @@ const cors = require("cors");
 const userRouter = require("./routs/users");
 const loggerOne = require("./middlewares/loggerOne");
 
-// Вызываем ДО обращения к переменным среды
+// Вызываем файл конфигурации ДО обращения к переменным среды
 dotenv.config();
 
-const { PORT, API_URL } = process.env;
+const { PORT = 3000, API_URL = 'http://127.0.0.1' } = process.env;
 
 const app = express();
 const helloWorld = (request, response) => {
@@ -17,7 +17,7 @@ const helloWorld = (request, response) => {
 };
 
 //  middlewares
-app.use(cors);
+app.use(cors());
 app.use(loggerOne);
 app.use(bodyParser.json());
 
